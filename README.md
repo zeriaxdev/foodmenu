@@ -22,3 +22,19 @@ This middleware parses HTML or PDF and then converts them to JSON format.
 
 ### Documentation
 Read the [wiki](https://github.com/wilmaplus/foodmenu/wiki)
+
+### MCP server
+An [MCP](https://modelcontextprotocol.io) server (`foodmenu-mcp`) exposes each
+menu endpoint as a tool over stdio, so AI assistants can query menus directly.
+
+Build and run alongside the HTTP API:
+
+```bash
+npm install
+npm start            # starts the HTTP API on PORT (default 3001)
+npm run mcp          # builds and starts the MCP server (stdio)
+```
+
+The MCP server forwards calls to the HTTP API at `FOODMENU_API_URL`
+(default `http://localhost:3001`). After publishing, it is also available
+as the `foodmenu-mcp` binary.
